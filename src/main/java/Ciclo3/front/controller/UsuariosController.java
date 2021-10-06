@@ -68,7 +68,7 @@ public class UsuariosController {
 
 		usudao = new UsuariosDAO();
 		
-		model.addAttribute("cedula", usudao.crearUsuario(usuario));
+		model.addAttribute("cedula", usudao.actualizarUsuario(usuario));
 //		listarUsuario();
 //		model.addAttribute("cedula", getListarUsuarios());
 
