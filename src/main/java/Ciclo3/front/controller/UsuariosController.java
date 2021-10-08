@@ -55,13 +55,13 @@ public class UsuariosController {
 
 			}
 	
-	@GetMapping("/usuario/crearUsuario")
-	public String usuario(Model model) {
-		listarUsuario();
-		model.addAttribute("usuario", getListarUsuarios());
-		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-		return "/usuario/crearUsuario";
-	}
+//	@GetMapping("/usuario/crearUsuario")
+//	public String usuario(Model model) {
+//		listarUsuario();
+//		model.addAttribute("usuario", getListarUsuarios());
+//		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
+//		return "/usuario/crearUsuario";
+//	}
 	
 	@PostMapping("/usuario/actualizarUsuario")
 	public String actualizarUsuario(Model model, UsuariosVO usuario) {
@@ -75,6 +75,27 @@ public class UsuariosController {
 		return "/usuario/actualizarUsuario";
 
 			}
+	
+	@PostMapping("/usuario/consultarUsuario")
+	public String consultarUsuario(Model model, UsuariosVO usuario) {
+
+		usudao = new UsuariosDAO();
+		//String usuenc;
+		model.addAttribute("cedula", usudao.consultarUsuario(usuario));
+//		listarUsuario();
+//		model.addAttribute("cedula", getListarUsuarios());
+
+		return "/usuario/consultarUsuario";
+
+			}
+	
+//	@GetMapping("/usuario/consultarUsuario")
+//	public String usuario(Model model) {
+//		listarUsuario();
+//		model.addAttribute("cedula", getListarUsuarios());
+//		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
+//		return "/usuario/consultarUsuario";
+//	}
 	
 	public void listarUsuario() {
 		UsuariosDAO objEstDao = new UsuariosDAO();

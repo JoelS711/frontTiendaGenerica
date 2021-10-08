@@ -91,4 +91,23 @@ public UsuariosVO actualizarUsuario(UsuariosVO usr) {
 	}
 
 }
+
+public UsuariosVO consultarUsuario(UsuariosVO usr) {
+
+	try {
+		WebClient webClient = WebClient.create(URL);
+		UsuariosVO objUsuario = null;
+		Mono<UsuariosVO> response = webClient.post().uri(URL + "/usuario/consultarUsuario")
+				.body(Mono.just(usr), UsuariosVO.class).retrieve().bodyToMono(UsuariosVO.class);
+
+		objUsuario = response.block();
+		return objUsuario;
+
+	} catch (WebClientResponseException e) {
+		e.getMessage();
+		System.out.println("---->" + e.getMessage());
+		return null;
+	}
+
+}
 }

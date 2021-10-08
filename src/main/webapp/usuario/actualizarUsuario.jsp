@@ -45,7 +45,7 @@
 						<ul class="submenu">
 							<li><a href="#">Consultar</a></li>
 							<li><a href="#">Crear</a></li>
-							<li><a href="#">Actualizar</a></li>
+							<li><a href="/cliente/actualizarCliente.jsp">Actualizar</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul></li>
 					<li><a href="#">Proveedores</a>
@@ -115,3 +115,5 @@
 	</div>
 
 	</header>
+	</body>
+</html>

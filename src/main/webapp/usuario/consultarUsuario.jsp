@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="Ciclo3.front.vo.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="Ciclo3.front.controller.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +20,17 @@
 		<div class="container2">
 			<div class="logo">
 				<div class="dropdown">
-					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false""
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">${usuario.nombre}</button>
+					<button class="btn btn-secondary btn-sm dropdown-toggle"
+						type="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" "
+						id="dropdownMenuButton"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mi
+						nombre</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#"> <img
 							src="./img/usuario.png" height="60" width="70" />
-						</a> <a class="dropdown-item" href="#">${usuario.usuario}</a> <a
-							class="dropdown-item" href="#">${usuario.correo}</a>
+						</a> <a class="dropdown-item" href="#">miusuario</a> <a
+							class="dropdown-item" href="#">mi correo</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Cerrar Sesion</a>
 
@@ -65,32 +70,35 @@
 						</ul></li>
 
 				</ul>
-				
+
 			</nav>
 
 		</div>
-	<div class="container col-lg-2">
+		<div class="container col-lg-2">
 			<div class="form-group text-center">
-				<form action="Validar" method="POST">
+				<form action="/usuario/consultarUsuario" method="POST">
 					<div class="form-group text-center">
-						<p style="color:white">
+						<p style="color: white">
 							<strong>CONSULTAR USUARIO</strong>
 						</p>
 						<img src="./img/usuario2.png" height="120" width="120" />
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="text" name="cedula"
-							id="cedula" value="${usuario.cedula}"
-							placeholder="Ingrese Cedula" style="text-align: center">
+						<input class="form-control" type="text" name="cedula" id="cedula"
+							value="${usuario.cedula}" placeholder="Ingrese Cedula"
+							style="text-align: center">
 					</div>
 
-					
-					<br>
-					<input class="btn btn-primary btn-md" type="submit"
-						name="btnConsultar" value="CONSULTAR" >
+
+					<br> <input class="btn btn-primary btn-md" type="submit"
+						name="btnConsultar" value="CONSULTAR">
 
 				</form>
 			</div>
-	</div>
+		</div>
+
+
 
 	</header>
+</body>
+</html>
