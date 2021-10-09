@@ -54,7 +54,7 @@
 							<li><a href="#">Actualizar</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul></li>
-					<li><a href="#">Productos</a></li>
+					<li><a href="/producto/cargarProducto.jsp">Productos</a></li>
 					<li><a href="#">Ventas</a></li>
 					<li><a href="#">Reportes</a>
 						<ul class="submenu">

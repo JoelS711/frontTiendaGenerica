@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="Ciclo3.front.vo.*"%>
-<%@ page import="java.util.*"%>
-<%@ page import="Ciclo3.front.controller.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,24 +11,21 @@
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Menú</title>
-<link rel="stylesheet" href="css/cssUsuario.css">
+<link rel="stylesheet" href="css/cssProducto.css">
 </head>
 <body>
 	<header class="header">
 		<div class="container2">
 			<div class="logo">
 				<div class="dropdown">
-					<button class="btn btn-secondary btn-sm dropdown-toggle"
-						type="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" "
-						id="dropdownMenuButton"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">mi
-						nombre</button>
+					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+						id="dropdownMenuButton" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">minombre</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#"> <img
 							src="./img/usuario.png" height="60" width="70" />
 						</a> <a class="dropdown-item" href="#">miusuario</a> <a
-							class="dropdown-item" href="#">mi correo</a>
+							class="dropdown-item" href="#">micorreo</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Cerrar Sesion</a>
 
@@ -50,7 +45,7 @@
 						<ul class="submenu">
 							<li><a href="#">Consultar</a></li>
 							<li><a href="#">Crear</a></li>
-							<li><a href="#">Actualizar</a></li>
+							<li><a href="/cliente/actualizarCliente.jsp">Actualizar</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul></li>
 					<li><a href="#">Proveedores</a>
@@ -60,7 +55,7 @@
 							<li><a href="#">Actualizar</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul></li>
-					<li><a href="#">Productos</a></li>
+					<li><a href="/producto/cargarProducto.jsp">Productos</a></li>
 					<li><a href="#">Ventas</a></li>
 					<li><a href="#">Reportes</a>
 						<ul class="submenu">
@@ -70,57 +65,33 @@
 						</ul></li>
 
 				</ul>
-
+				
 			</nav>
 
 		</div>
-		<div class="container col-lg-2">
+	<div class="container col-lg-2">
 			<div class="form-group text-center">
-				<form action="/usuario/consultarUsuario" method="POST">
+				<form method="POST" enctype="multipart/form-data" action="/producto/cargarProducto">
 					<div class="form-group text-center">
-						<p style="color: white">
-							<strong>CONSULTAR USUARIO</strong>
+						<p style="color:white">
+							<strong>CARGAR PRODUCTO</strong>
 						</p>
-						<img src="./img/usuario2.png" height="120" width="120" />
+						<img src="./img/producto.png" height="120" width="120" />
 					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" name="cedula" id="cedula"
-							value="${usuario.cedula}" placeholder="Ingrese Cedula"
-							style="text-align: center">
-					</div>
+					<input type="file" name="file" accept=".csv" style="color:white" /> 
 
-
-					<br> <input class="btn btn-primary btn-md" type="submit"
-						name="btnConsultar" value="CONSULTAR">
+					<br>
+					<br>
+					<input class="btn btn-primary btn-md" type="submit"
+						name="btnCargar" value="CARGAR" >
+						
+					<div style="color: red">${errorCargaArchivo}</div>
+					<div style="color: blue">${cargaArchivo}</div>
 
 				</form>
 			</div>
-		</div>
-
-<table>
-<thead>
-	<tr>
-		<td>#</td>
-		<td>Cedula</td>
-		<td>Nombre</td>
-		<td>Correo</td>
-		<td>Usuario</td>
-		<td>Contrasena</td>
-	</tr>
-</thead>
-<tbody>
-<c:if test="${usuario != null}">
-<tr>
-	<td>${usuario.cedula}</td>
-	<td>${usuario.nombre}</td>
-	<td>${usuario.correo}</td>
-	<td>${usuario.usuario}</td>
-	<td>${usuario.contrasena}</td>
-</tr>
-</c:if>
-</tbody>
-</table>
+	</div>
 
 	</header>
-</body>
+	</body>
 </html>
