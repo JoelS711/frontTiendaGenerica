@@ -54,13 +54,6 @@ public class UsuariosController {
 		return redi;
 	}
 
-//	@GetMapping("/usuario/crearUsuario")
-//	public String usuario(Model model) {
-//		listarUsuario();
-//		model.addAttribute("usuario", getListarUsuarios());
-//		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-//		return "/usuario/crearUsuario";
-//	}
 
 	@PostMapping("/usuario/actualizarUsuario")
 	public String actualizarUsuario(Model model, UsuariosVO usuario) {
