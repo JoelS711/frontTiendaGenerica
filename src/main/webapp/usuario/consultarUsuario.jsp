@@ -92,34 +92,34 @@
 
 					<br> <input class="btn btn-primary btn-md" type="submit"
 						name="btnConsultar" value="CONSULTAR">
-
+					<div style="color: red">${noconsultar}</div>
 				</form>
 			</div>
 		</div>
 
-<table>
-<thead>
-	<tr>
-		<td>#</td>
-		<td>Cedula</td>
-		<td>Nombre</td>
-		<td>Correo</td>
-		<td>Usuario</td>
-		<td>Contrasena</td>
-	</tr>
-</thead>
-<tbody>
-<c:if test="${usuario != null}">
-<tr>
-	<td>${usuario.cedula}</td>
-	<td>${usuario.nombre}</td>
-	<td>${usuario.correo}</td>
-	<td>${usuario.usuario}</td>
-	<td>${usuario.contrasena}</td>
-</tr>
-</c:if>
-</tbody>
-</table>
+		<table>
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Cedula</td>
+					<td>Nombre</td>
+					<td>Correo</td>
+					<td>Usuario</td>
+					<td>Contrasena</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test="${usuario != null}">
+					<tr>
+						<td>${usuario.cedula}</td>
+						<td>${usuario.nombre}</td>
+						<td>${usuario.correo}</td>
+						<td>${usuario.usuario}</td>
+						<td>${usuario.contrasena}</td>
+					</tr>
+				</c:if>
+			</tbody>
+		</table>
 
 	</header>
 </body>
