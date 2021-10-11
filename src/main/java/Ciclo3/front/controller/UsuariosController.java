@@ -48,10 +48,10 @@ public class UsuariosController {
 		usudao = new UsuariosDAO();
 		if(resultadoValidacion.hasErrors()) {
 			model.addAttribute("error", "Faltan datos del usuario");
-			redi="/usuario/crUsuario";
+			redi="/usuario/crearUsuario";
 		}else{				
 			model.addAttribute("usuario", usudao.crearUsuario(usuario));
-			redi="/usuario/crUsuario";
+			redi="/usuario/crearUsuario";
 			model.addAttribute("mensaje", "Usuario Creado");
 		}
 		return redi;
