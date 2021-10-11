@@ -109,6 +109,7 @@ public class UsuariosController {
         }else {
         	listarUsuarios = new ArrayList<UsuariosVO>();
         }
+		
 	}
 
 	public ArrayList<UsuariosVO> getListarUsuarios() {
