@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -43,16 +43,18 @@ public class UsuariosController {
 	
 	
 	@PostMapping("/usuario/crearUsuario")
-	public String crearUsuario(Model model, UsuariosVO usuario) {
-
+	public String crearUsuario( @Validated UsuariosVO usuario, BindingResult resultadoValidacion,Model model) {
+		String redi;
 		usudao = new UsuariosDAO();
-		
-		model.addAttribute("usuario", usudao.crearUsuario(usuario));
-		listarUsuario();
-		model.addAttribute("cedula", getListarUsuarios());
-
-		return "/usuario/crearUsuario";
-
+		if(resultadoValidacion.hasErrors()) {
+			model.addAttribute("error", "Faltan datos del usuario");
+			redi="/usuario/crUsuario";
+		}else{				
+			model.addAttribute("usuario", usudao.crearUsuario(usuario));
+			redi="/usuario/crUsuario";
+			model.addAttribute("mensaje", "Usuario Creado");
+		}
+		return redi;
 			}
 	
 //	@GetMapping("/usuario/crearUsuario")

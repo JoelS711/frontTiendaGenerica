@@ -1,11 +1,20 @@
 package Ciclo3.front.vo;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class UsuariosVO {
-	Long cedula;
-	String nombre;
-	String correo;
-	String usuario;
-	String contrasena;
+	
+	private Long cedula;
+	@NotBlank
+	private String nombre;
+	@NotBlank
+	@Email
+	private String correo;
+	@NotBlank
+	private String usuario;
+	@NotBlank
+	private String contrasena;
 
 
 
