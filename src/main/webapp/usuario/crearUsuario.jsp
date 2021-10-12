@@ -113,6 +113,7 @@
 					</div>
 					<br> <input class="btn btn-primary btn-md" type="submit"
 						name="btnCrear" value="CREAR">
+						<br><br>
 					<div style="color: red">${error}</div>
 					<div style="color: white">${mensaje}</div>
 

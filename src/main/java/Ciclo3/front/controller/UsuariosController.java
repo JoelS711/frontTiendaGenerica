@@ -16,92 +16,79 @@ import com.google.gson.reflect.TypeToken;
 import Ciclo3.front.model.UsuariosDAO;
 import Ciclo3.front.vo.UsuariosVO;
 
-
-
 @Controller
 public class UsuariosController {
-	
+
 	private ArrayList<UsuariosVO> listarUsuarios;
-	
+
 	@Autowired
 	private UsuariosDAO usudao;
-	
+
 	@PostMapping("/auth")
 	public String auth(Model model, UsuariosVO usuario) {
-		usudao =  new UsuariosDAO();
+		usudao = new UsuariosDAO();
 		String redirec;
 		UsuariosVO usr = usudao.auth(usuario);
-		if(usr != null) {
-		model.addAttribute("usuario", usr);
-		redirec = "Menu";
-		}else {
-		model.addAttribute("error", "Usuario o constraseña invalidos.");
-		redirec = "auth";
+		if (usr != null) {
+			model.addAttribute("usuario", usr);
+			redirec = "Menu";
+		} else {
+			model.addAttribute("error", "Usuario o constraseña invalidos.");
+			redirec = "auth";
 		}
 		return redirec;
 	}
-	
-	
+
 	@PostMapping("/usuario/crearUsuario")
-	public String crearUsuario( @Validated UsuariosVO usuario, BindingResult resultadoValidacion,Model model) {
+	public String crearUsuario(@Validated UsuariosVO usuario, BindingResult resultadoValidacion, Model model) {
 		String redi;
 		usudao = new UsuariosDAO();
-		if(resultadoValidacion.hasErrors()) {
+		if (resultadoValidacion.hasErrors()) {
 			model.addAttribute("error", "Faltan datos del usuario");
-			redi="/usuario/crearUsuario";
-		}else{				
+			redi = "/usuario/crearUsuario";
+		} else {
 			model.addAttribute("usuario", usudao.crearUsuario(usuario));
-			redi="/usuario/crearUsuario";
+			redi = "/usuario/crearUsuario";
 			model.addAttribute("mensaje", "Usuario Creado");
 		}
 		return redi;
-			}
-	
-//	@GetMapping("/usuario/crearUsuario")
-//	public String usuario(Model model) {
-//		listarUsuario();
-//		model.addAttribute("usuario", getListarUsuarios());
-//		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-//		return "/usuario/crearUsuario";
-//	}
-	
+	}
+
+
 	@PostMapping("/usuario/actualizarUsuario")
 	public String actualizarUsuario(Model model, UsuariosVO usuario) {
 
 		usudao = new UsuariosDAO();
-		
+
 		model.addAttribute("cedula", usudao.actualizarUsuario(usuario));
 //		listarUsuario();
 //		model.addAttribute("cedula", getListarUsuarios());
 
 		return "/usuario/actualizarUsuario";
 
-			}
-	
+	}
+
 	@PostMapping("/usuario/consultarUsuario")
 	public String consultarUsuario(Model model, UsuariosVO usuario) {
 
 		usudao = new UsuariosDAO();
-		//String usuenc;
-		model.addAttribute("cedula", usudao.consultarUsuario(usuario));
-//		listarUsuario();
-//		model.addAttribute("cedula", getListarUsuarios());
+		String redi;
+		UsuariosVO usr = usudao.consultarUsuario(usuario);
+		if(usr != null) {
+			model.addAttribute("usuario", usr);
+			redi = "/usuario/consultarUsuario";
+		}else {
+			model.addAttribute("noconsultar", "Usuario no Existe");
+			redi = "/usuario/consultarUsuario";
 
-		return "/usuario/consultarUsuario";
-
+		}
+		return redi;
 			}
-	
-//	@GetMapping("/usuario/consultarUsuario")
-//	public String usuario(Model model) {
-//		listarUsuario();
-//		model.addAttribute("cedula", getListarUsuarios());
-//		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-//		return "/usuario/consultarUsuario";
-//	}
-	
+
 	public void listarUsuario() {
 		UsuariosDAO objEstDao = new UsuariosDAO();
 		String json = objEstDao.listarUsuarios();
+<<<<<<< HEAD
 		if(json  != null) {
             Type listType = new TypeToken<ArrayList<UsuariosVO>>(){}.getType();
             Gson gson = new Gson();
@@ -110,6 +97,16 @@ public class UsuariosController {
         	listarUsuarios = new ArrayList<UsuariosVO>();
         }
 		
+=======
+		if (json != null) {
+			Type listType = new TypeToken<ArrayList<UsuariosVO>>() {
+			}.getType();
+			Gson gson = new Gson();
+			listarUsuarios = gson.fromJson(json, listType);
+		} else {
+			listarUsuarios = new ArrayList<UsuariosVO>();
+		}
+>>>>>>> branch 'master' of https://github.com/JoelS711/frontTiendaGenerica.git
 	}
 
 	public ArrayList<UsuariosVO> getListarUsuarios() {
@@ -119,8 +116,19 @@ public class UsuariosController {
 	public void setListarUsuarios(ArrayList<UsuariosVO> listarUsuarios) {
 		this.listarUsuarios = listarUsuarios;
 	}
-	
-	
-	
-	
+	@PostMapping("/usuario/eliminarUsuario")
+	public String eliminarUsuario(Model model, UsuariosVO usuario) {
+		UsuariosVO usr = usudao.consultarUsuario(usuario);
+		usudao = new UsuariosDAO();
+		if(usr != null) {
+			model.addAttribute("cedula", usudao.eliminarUsuario(usuario));
+			model.addAttribute("mensaje", "Datos del Usuario Borrados");
+
+		}else {
+			model.addAttribute("error", "C�dula Errada");
+		
+		}
+		return "/usuario/eliminarUsuario";
+	}
+
 }
