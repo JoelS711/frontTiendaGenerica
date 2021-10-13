@@ -81,18 +81,6 @@ body{
     margin-top: 150px;
 }
 
-#cuadro{
-	margin: auto;
-	margin-top: 30px;
-	width: 800px;
-	background: #696969;
-	color: #ffffff;
-	font-size: 16px;
-	padding: 10px 10px 10px 10px;
-	border-radius: 6px;
-	
-}
-
 /* ::placeholder{ */
 /* 	text-align: center; */
 /* } */

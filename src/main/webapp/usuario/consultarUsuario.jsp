@@ -96,31 +96,30 @@
 				</form>
 			</div>
 		</div>
-
-		<table>
+<div id="cuadro">
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td>#</td>
-					<td>Cedula</td>
-					<td>Nombre</td>
-					<td>Correo</td>
-					<td>Usuario</td>
-					<td>Contrasena</td>
+					<td scope="col"><center>Cedula</center></td>
+					<td scope="col"><center>Nombre</center></td>
+					<td scope="col"><center>Correo</center></td>
+					<td scope="col"><center>Usuario</center></td>
+					<td scope="col"><center>Contrasena</center></td>
 				</tr>
 			</thead>
-			<tbody>
+			
 				<c:if test="${usuario != null}">
 					<tr>
-						<td>${usuario.cedula}</td>
-						<td>${usuario.nombre}</td>
-						<td>${usuario.correo}</td>
-						<td>${usuario.usuario}</td>
-						<td>${usuario.contrasena}</td>
+						<td><center>${usuario.cedula}</center></td>
+						<td><center>${usuario.nombre}</center></td>
+						<td><center>${usuario.correo}</center></td>
+						<td><center>${usuario.usuario}</center></td>
+						<td><center>${usuario.contrasena}</center></td>
 					</tr>
 				</c:if>
-			</tbody>
+			
 		</table>
-
+</div>
 	</header>
 </body>
 </html>
