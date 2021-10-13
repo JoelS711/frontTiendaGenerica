@@ -88,7 +88,6 @@ public class UsuariosController {
 	public void listarUsuario() {
 		UsuariosDAO objEstDao = new UsuariosDAO();
 		String json = objEstDao.listarUsuarios();
-<<<<<<< HEAD
 		if (json != null) {
 			Type listType = new TypeToken<ArrayList<UsuariosVO>>() {
 			}.getType();
@@ -97,8 +96,7 @@ public class UsuariosController {
 		} else {
 			listarUsuarios = new ArrayList<UsuariosVO>();
 		}
-=======
-<<<<<<< HEAD
+
 		if(json  != null) {
             Type listType = new TypeToken<ArrayList<UsuariosVO>>(){}.getType();
             Gson gson = new Gson();
@@ -107,7 +105,6 @@ public class UsuariosController {
         	listarUsuarios = new ArrayList<UsuariosVO>();
         }
 		
-=======
 		if (json != null) {
 			Type listType = new TypeToken<ArrayList<UsuariosVO>>() {
 			}.getType();
@@ -116,8 +113,7 @@ public class UsuariosController {
 		} else {
 			listarUsuarios = new ArrayList<UsuariosVO>();
 		}
->>>>>>> branch 'master' of https://github.com/JoelS711/frontTiendaGenerica.git
->>>>>>> branch 'master' of git@github.com:JoelS711/frontTiendaGenerica.git
+
 	}
 
 	public ArrayList<UsuariosVO> getListarUsuarios() {
@@ -127,8 +123,7 @@ public class UsuariosController {
 	public void setListarUsuarios(ArrayList<UsuariosVO> listarUsuarios) {
 		this.listarUsuarios = listarUsuarios;
 	}
-<<<<<<< HEAD
-=======
+
 	@PostMapping("/usuario/eliminarUsuario")
 	public String eliminarUsuario(Model model, UsuariosVO usuario) {
 		UsuariosVO usr = usudao.consultarUsuario(usuario);
@@ -138,11 +133,11 @@ public class UsuariosController {
 			model.addAttribute("mensaje", "Datos del Usuario Borrados");
 
 		}else {
-			model.addAttribute("error", "Cédula Errada");
+			model.addAttribute("error", "Cï¿½dula Errada");
 		
 		}
 		return "/usuario/eliminarUsuario";
 	}
->>>>>>> branch 'master' of git@github.com:JoelS711/frontTiendaGenerica.git
+
 
 }

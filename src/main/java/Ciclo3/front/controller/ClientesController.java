@@ -26,6 +26,7 @@ public class ClientesController {
 		return "/cliente/actualizarCliente";
 
 			}
+	
 	@PostMapping("/usuario/eliminarCliente")
 	public String eliminarCliente(Model model, ClientesVO cli) {
 		ClientesVO objCli = clidao.consultarCliente(cli);
