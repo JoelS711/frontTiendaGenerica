@@ -26,4 +26,18 @@ public class ClientesController {
 		return "/cliente/actualizarCliente";
 
 			}
+	@PostMapping("/usuario/eliminarCliente")
+	public String eliminarCliente(Model model, ClientesVO cli) {
+		ClientesVO objCli = clidao.consultarCliente(cli);
+		clidao = new ClientesDAO();
+		if (objCli != null) {
+			model.addAttribute("cedula", clidao.eliminarCliente(cli));
+			model.addAttribute("mensaje", "Datos del Cliente Borrados");
+
+		} else {
+			model.addAttribute("error", "C�dula Errada");
+
+		}
+		return "/cliente/eliminarCliente";
+	}
 }

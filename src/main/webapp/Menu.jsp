@@ -42,10 +42,10 @@
 						</ul></li>
 					<li><a href="#">Clientes</a>
 						<ul class="submenu">
-							<li><a href="#">Consultar</a></li>
-							<li><a href="#">Crear</a></li>
+							<li><a href="/usuario/consultarCliente.jsp">Consultar</a></li>
+							<li><a href="/usuario/crearCliente.jsp">Crear</a></li>
 							<li><a href="/cliente/actualizarCliente.jsp">Actualizar</a></li>
-							<li><a href="#">Eliminar</a></li>
+							<li><a href="/cliente/eliminarCliente.jsp">Eliminar</a></li>
 						</ul></li>
 					<li><a href="#">Proveedores</a>
 						<ul class="submenu">
