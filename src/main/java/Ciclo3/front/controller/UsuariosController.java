@@ -46,11 +46,17 @@ public class UsuariosController {
 		if (resultadoValidacion.hasErrors()) {
 			model.addAttribute("error", "Faltan datos del usuario");
 			redi = "/usuario/crearUsuario";
-		} else {
-			model.addAttribute("usuario", usudao.crearUsuario(usuario));
-			redi = "/usuario/crearUsuario";
-			model.addAttribute("mensaje", "Usuario Creado");
+		}else {
+			if(usr !=null) {
+				model.addAttribute("eror","Usuario ya existe");
+				redi="/usuario/crearUsuario";
+			}else {
+				model.addAttribute("usuario", usudao.crearUsuario(usuario));
+				redi = "/usuario/crearUsuario";
+				model.addAttribute("mensaje", "Usuario Creado");
+			}
 		}
+		
 		return redi;
 	}
 
