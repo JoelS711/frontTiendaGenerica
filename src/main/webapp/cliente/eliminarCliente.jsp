@@ -71,7 +71,7 @@
 		</div>
 	<div class="container col-lg-2">
 			<div class="form-group text-center">
-				<form action="eliminarUsuario" method="POST">
+				<form action="/cliente/eliminarCliente" method="POST">
 					<div class="form-group text-center">
 						<p style="color:white">
 							<strong>ELIMINAR CLIENTE</strong>
