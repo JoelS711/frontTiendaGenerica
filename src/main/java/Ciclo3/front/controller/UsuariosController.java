@@ -42,6 +42,7 @@ public class UsuariosController {
 	@PostMapping("/usuario/crearUsuario")
 	public String crearUsuario(@Validated UsuariosVO usuario, BindingResult resultadoValidacion, Model model) {
 		String redi;
+		UsuariosVO usr=usudao.consultarUsuarios(usuario);
 		usudao = new UsuariosDAO();
 		if (resultadoValidacion.hasErrors()) {
 			model.addAttribute("error", "Faltan datos del usuario");
