@@ -79,5 +79,27 @@ public ArrayList<ClientesVO> getListarClientes() {
 		this.listarClientes = listarClientes;
 	}
 	
+	@PostMapping("/cliente/crearCliente")
+	public String creaCliente(@Validated ClientesVO cliente, BindingResult resultadoValidacion, Model model) {
+		String redi;
+		ClientesVO cli=clidao.consultarCliente(cliente);
+		clidao = new ClientesDAO();
+		if (resultadoValidacion.hasErrors()) {
+			model.addAttribute("error", "Faltan datos del Cliente");
+			redi = "/cliente/crearCliente";
+		}else {
+			if(cli !=null) {
+				model.addAttribute("eror","Cliente ya existe");
+				redi="/cliente/crearCliente";
+			}else {
+				model.addAttribute("usuario", clidao.crearCliente(cliente));
+				redi = "/cliente/crearCliente";
+				model.addAttribute("mensaje", "Cliente Creado");
+			}
+		}
+		
+		return redi;
+	}
+	
 }
 

@@ -1,12 +1,21 @@
 package Ciclo3.front.vo;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class ClientesVO {
 
 	Long cedula;
+	@NotBlank
 	String direccion;
+	@NotBlank
+	@Email
 	String correo;
+	@NotBlank
 	String nombre;
+	@NotBlank
 	String telefono;
+	@NotBlank
 	
 	
 	

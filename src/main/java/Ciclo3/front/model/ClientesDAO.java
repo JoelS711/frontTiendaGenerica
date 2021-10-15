@@ -99,4 +99,23 @@ public String listarClientes() {
 		return null;
 	}
 
+public ClientesVO crearCliente(ClientesVO cli) {
+
+	try {
+		WebClient webClient = WebClient.create(URL);
+		ClientesVO objCliente = null;
+		Mono<ClientesVO> response = webClient.post().uri(URL + "/cliente/crearCliente")
+				.body(Mono.just(cli), ClientesVO.class).retrieve().bodyToMono(ClientesVO.class);
+
+		objCliente = response.block();
+		return objCliente;
+
+	} catch (WebClientResponseException e) {
+		e.getMessage();
+		System.out.println("---->" + e.getMessage());
+		return null;
+	}
+
+}
+
 }
