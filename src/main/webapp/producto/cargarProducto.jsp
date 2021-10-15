@@ -86,7 +86,7 @@
 						name="btnCargar" value="CARGAR" >
 						
 					<div style="color: red">${errorCargaArchivo}</div>
-					<div style="color: blue">${cargaArchivo}</div>
+					<div style="color: white">${cargaArchivo}</div>
 
 				</form>
 			</div>

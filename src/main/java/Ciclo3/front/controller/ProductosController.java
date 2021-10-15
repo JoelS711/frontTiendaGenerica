@@ -31,16 +31,12 @@ public class ProductosController {
 			List<String[]> datos = CSVHelper.csvToTutorials(file.getInputStream());
 			ProductosVO p;
 			for (String[] s : datos) {
-				StringTokenizer token = new StringTokenizer(s[0], ";");
+				StringTokenizer token = new StringTokenizer(s[0], ",");
 				String[] tok = new String[6];
 				int i = 0;
-				while (token.hasMoreTokens()) {
-					tok[i] = token.nextToken();
-					i++;
-				}
 
-				p = new ProductosVO(Integer.parseInt(tok[0]), Long.parseLong(tok[1]), Float.parseFloat(tok[2]), tok[3],
-						Float.parseFloat(tok[4]), Float.parseFloat(tok[5]));
+				p = new ProductosVO(Integer.parseInt(s[0]), Long.parseLong(s[1]), Float.parseFloat(s[2]), s[3],
+						Float.parseFloat(s[4]), Float.parseFloat(s[5]));
 				misP.add(p);
 			}
 			miDao = new ProductosDAO();
