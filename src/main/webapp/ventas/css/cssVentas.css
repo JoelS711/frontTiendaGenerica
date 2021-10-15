@@ -80,12 +80,98 @@ body{
     padding: 25px;
     margin-top: 150px;
 }
+.formulario-login {
+	font-size: 15px;
+	width: 800px;
+	height: 600px;
+	background: #090909;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 7px 7px 30px #000; /* sombras*/
+	padding: 20px 30px;
+	/*border-top: 4px solid #017bab; se usa para dar un borde en la parte superior*/
+	color: white;
+	opacity: 0.9;
 
-/* ::placeholder{ */
-/* 	text-align: center; */
-/* } */
-/* .btn btn-primary btn-block{ */
-/* 	height:80; */
-/* 	width:120; */
+	border-radius: 8px;
 	
-/* } */
+	
+}
+.formulario-login h5 {
+	margin: 0;
+	text-align: center;
+	height: 40px;
+	margin-bottom: 30px;
+	font-size: 30px;
+	
+}
+.controls {
+	text-align: center;
+	font-family: calibri;
+	width: 20%;
+	height: 35px;
+	border-radius: 8px;
+}
+.controls1 {
+	text-align: center;
+	font-family: calibri;
+	width: 35%;
+	height: 35px;
+	border-radius: 8px;
+}
+.boton {
+	width: 100px;
+	height: 35px;
+	border-radius: 8px;
+	font-size: 20px;
+	opacity: 1;
+}
+.venta1 {
+	margin-top: 5px;
+	text-align: center;
+	font-family: calibri;
+	width: 20%;
+	height: 35px;
+	border-radius: 8px;
+}
+.venta2 {
+	margin-top: 5px;
+	text-align: center;
+	text-align: center;
+	font-family: calibri;
+	width: 30%;
+	height: 35px;
+	border-radius: 8px;
+}
+.venta3 {
+	margin-top: 5px;
+	text-align: center;
+	font-family: calibri;
+	width: 10%;
+	height: 35px;
+	border-radius: 8px;
+}
+.venta4 {
+	margin-top: 5px;
+	text-align: center;
+	font-family: calibri;
+	width: 20%;
+	height: 35px;
+	border-radius: 8px;
+}
+.venta5 {
+	width: 100px;
+	margin-top: 10px;
+	text-align: center;
+	font-family: calibri;
+	width: 20%;
+	height: 35px;
+	border-radius: 8px;
+}
+.hijo2{
+	position: absolute;
+ 	top: 1450%;
+ 	transform: translateY(+120%);
+ 	transform: translateX(+72%);
+	width: 800px;
+}
