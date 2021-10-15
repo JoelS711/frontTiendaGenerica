@@ -54,4 +54,40 @@ public class ClientesController {
 		}
 		return "/cliente/eliminarCliente";
 	}
+	
+	public void listarCliente() {
+		ClientesDAO objEstDao = new ClientesDAO();
+		String json = objEstDao.listarClientes();
+		if(json  != null) {
+            Type listType = new TypeToken<ArrayList<ClientesVO>>(){}.getType();
+            Gson gson = new Gson();
+            listarClientes = gson.fromJson(json, listType);
+        }else {
+        	listarClientes = new ArrayList<ClientesVO>();
+        }
+	}
+
+public ArrayList<ClientesVO> getListarClientes() {
+	return listarClientes;
+}
+
+	public void setListarClientes(ArrayList<ClientesVO> listarClientes) {
+		this.listarClientes = listarClientes;
+	}
+	
+	@PostMapping("/cliente/eliminarCliente")
+	public String eliminarCliente(Model model, ClientesVO cliente) {
+		ClientesVO cli = clidao.consultarCliente(cliente);
+		clidao = new ClientesDAO();
+		if(cli != null) {
+			model.addAttribute("cedula", clidao.eliminarCliente(cliente));
+			model.addAttribute("mensaje", "Datos del Cliente Borrados");
+
+		}else {
+			model.addAttribute("error", "Cédula Errada");
+		
+		}
+		return "/cliente/eliminarCliente";
+	}
+}
 }
