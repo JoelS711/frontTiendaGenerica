@@ -42,7 +42,7 @@ public class UsuariosController {
 	@PostMapping("/usuario/crearUsuario")
 	public String crearUsuario(@Validated UsuariosVO usuario, BindingResult resultadoValidacion, Model model) {
 		String redi;
-		UsuariosVO usr=usudao.consultarUsuarios(usuario);
+		UsuariosVO usr=usudao.consultarUsuario(usuario);
 		usudao = new UsuariosDAO();
 		if (resultadoValidacion.hasErrors()) {
 			model.addAttribute("error", "Faltan datos del usuario");
@@ -63,16 +63,25 @@ public class UsuariosController {
 
 
 	@PostMapping("/usuario/actualizarUsuario")
-	public String actualizarUsuario(Model model, UsuariosVO usuario) {
-
+	public String actualizarUsuario(Model model,@Validated UsuariosVO usuario, BindingResult resultadoValidacion) {
+		String redic;
 		usudao = new UsuariosDAO();
-
-		model.addAttribute("cedula", usudao.actualizarUsuario(usuario));
-//		listarUsuario();
-//		model.addAttribute("cedula", getListarUsuarios());
+		UsuariosVO usr = usudao.actualizarUsuario(usuario);
+		if(resultadoValidacion.hasErrors()) {
+			model.addAttribute("error", "Faltan datos del usuario");
+			redic = "/usuario/actualizarUsuario";
+		}else {
+			if(usr != null) {
+				model.addAttribute("cedula", usudao.actualizarUsuario(usuario));
+				redic = "/usuario/actualizarUsuario";
+				model.addAttribute("mensaje", "Usuario Actualizado");
+			}else {
+				model.addAttribute("error", "Usuario no registrado");
+				redic = "/usuario/actualizarUsuario";
+			}
+		}
 
 		return "/usuario/actualizarUsuario";
-
 	}
 
 	@PostMapping("/usuario/consultarUsuario")

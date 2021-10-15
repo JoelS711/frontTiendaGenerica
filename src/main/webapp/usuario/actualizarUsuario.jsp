@@ -109,6 +109,9 @@
 					<br>
 					<input class="btn btn-primary btn-md" type="submit"
 						name="btnActualizar" value="ACTUALIZAR" >
+						
+						<div style="color: red">${error}</div>
+					<div style="color: white">${mensaje}</div>
 
 				</form>
 			</div>
