@@ -1,5 +1,8 @@
 package Ciclo3.front.controller;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,16 +10,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import Ciclo3.front.model.ClientesDAO;
-import Ciclo3.front.model.UsuariosDAO;
 import Ciclo3.front.vo.ClientesVO;
-import Ciclo3.front.vo.UsuariosVO;
 
 @Controller
 public class ClientesController {
 
 	@Autowired
 	private ClientesDAO clidao;
+	private ArrayList<ClientesVO> listarClientes;
 
 	@PostMapping("/cliente/actualizarCliente")
 	public String actualizarCliente(Model model, @Validated ClientesVO cliente, BindingResult resultadoValidacion) {
@@ -75,19 +79,5 @@ public ArrayList<ClientesVO> getListarClientes() {
 		this.listarClientes = listarClientes;
 	}
 	
-	@PostMapping("/cliente/eliminarCliente")
-	public String eliminarCliente(Model model, ClientesVO cliente) {
-		ClientesVO cli = clidao.consultarCliente(cliente);
-		clidao = new ClientesDAO();
-		if(cli != null) {
-			model.addAttribute("cedula", clidao.eliminarCliente(cliente));
-			model.addAttribute("mensaje", "Datos del Cliente Borrados");
+}
 
-		}else {
-			model.addAttribute("error", "Cédula Errada");
-		
-		}
-		return "/cliente/eliminarCliente";
-	}
-}
-}
