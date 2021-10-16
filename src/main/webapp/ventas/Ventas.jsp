@@ -48,25 +48,25 @@
 						</ul></li>
 					<li><a href="#">Clientes</a>
 						<ul class="submenu">
-							<li><a href="#">Consultar</a></li>
-							<li><a href="#">Crear</a></li>
-							<li><a href="#">Actualizar</a></li>
-							<li><a href="#">Eliminar</a></li>
+							<li><a href="/cliente/consultarCliente.jsp">Consultar</a></li>
+							<li><a href="/cliente/crearCliente.jsp">Crear</a></li>
+							<li><a href="/cliente/actualizarCliente.jsp">Actualizar</a></li>
+							<li><a href="/cliente/eliminarCliente.jsp">Eliminar</a></li>
 						</ul></li>
 					<li><a href="#">Proveedores</a>
 						<ul class="submenu">
-							<li><a href="#">Consultar</a></li>
-							<li><a href="#">Crear</a></li>
-							<li><a href="#">Actualizar</a></li>
-							<li><a href="#">Eliminar</a></li>
+							<li><a href="/proveedor/consultarProveedor.jsp">Consultar</a></li>
+							<li><a href="/proveedor/crearProveedor.jsp">Crear</a></li>
+							<li><a href="/proveedor/actualizarProveedor.jsp">Actualizar</a></li>
+							<li><a href="/proveedor/eliminarProveedor.jsp">Eliminar</a></li>
 						</ul></li>
-					<li><a href="#">Productos</a></li>
+					<li><a href="/producto/cargarProducto.jsp">Productos</a></li>
 					<li><a href="/ventas/Ventas.jsp">Ventas</a></li>
 					<li><a href="#">Reportes</a>
 						<ul class="submenu">
-							<li><a href="#">Lista de Usuarios</a></li>
-							<li><a href="#">Lista de Clientes</a></li>
-							<li><a href="#">Venta por Cliente</a></li>
+							<li><a href="/reportes/listarUsuarios.jsp">Lista de Usuarios</a></li>
+							<li><a href="/reportes/listarClientes.jsp">Lista de Clientes</a></li>
+							<li><a href="/reportes/ventaClientes">Venta por Cliente</a></li>
 						</ul></li>
 
 				</ul>
