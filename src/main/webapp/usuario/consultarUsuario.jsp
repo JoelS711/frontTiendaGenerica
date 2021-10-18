@@ -66,7 +66,7 @@
 						<ul class="submenu">
 							<li><a href="/reportes/listarUsuarios.jsp">Lista de Usuarios</a></li>
 							<li><a href="/reportes/listarClientes.jsp">Lista de Clientes</a></li>
-							<li><a href="/reportes/ventaClientes">Venta por Cliente</a></li>
+							<li><a href="/reportes/ventaClientes.jsp">Venta por Cliente</a></li>
 						</ul></li>
 
 				</ul>
