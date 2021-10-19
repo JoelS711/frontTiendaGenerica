@@ -19,6 +19,10 @@ public class VentasVO {
 		this.total_venta = total_venta;
 		this.valor_venta = valor_venta;
 	}
+	
+	public VentasVO(Long cedula_cliente, Long total_venta) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {
