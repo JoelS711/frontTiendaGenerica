@@ -76,23 +76,25 @@
 		<%
 		VentasController controller = new VentasController();
 		controller.listarVentas();
-		ArrayList<VentasVO> lista = controller.getListarVentas();
+		ArrayList<ReportesVO> lista = controller.getListarVentas();
 		if(lista.size()>0){
 		%>
 	<strong><center><h3><b>Listado de Ventas por Cliente</b></h3><center></strong>
 		<table class="table table-striped">
 			<th><b>
 			</b><td scope="col"><center>Cedula</center></td>
+			<td scope="col"><center>Nombre</center></td>
 			<td scope="col"><center>Total Venta</center></td>
 			</b></th>
 			<%
-			for (VentasVO dto : lista) {
+			for (ReportesVO dto : lista) {
 				
 			%>
 			<tr>
 				<td></td>
-				<td><center><%=dto.getCedula_cliente()%></center></td>
-				<td><center><%=dto.getTotal_venta()%></center></td>
+				<td><center><%=dto.getCedula()%></center></td>
+				<td><center><%=dto.getNombre()%></center></td>
+				<td><center><%=dto.getTotal()%></center></td>
 			</tr>
 		<%}}else{
 			
