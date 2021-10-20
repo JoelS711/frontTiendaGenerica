@@ -100,6 +100,22 @@ public ArrayList<ClientesVO> getListarClientes() {
 		
 		return redi;
 	}
+	@PostMapping("/ventas/Ventas")
+	public String consultarClienteVenta(Model model, ClientesVO cliente) {
+
+		clidao = new ClientesDAO();
+		String redi;
+		ClientesVO cli = clidao.consultarCliente(cliente);
+		if(cli != null) {
+			model.addAttribute("cliente", cli);
+			redi = "/ventas/Ventas";
+		}else {
+			model.addAttribute("error", "Usuario no Existe");
+			redi = "/ventas/Ventas";
+
+		}
+		return redi;
+			}
 	
 }
 
