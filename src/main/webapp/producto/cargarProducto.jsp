@@ -69,7 +69,7 @@
 			</nav>
 
 		</div>
-	<div class="container col-lg-2">
+	<div class="container col-lg-2 id="cuadro3">
 			<div class="form-group text-center">
 				<form method="POST" enctype="multipart/form-data" action="/producto/cargarProducto">
 					<div class="form-group text-center">

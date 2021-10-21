@@ -81,11 +81,19 @@ body{
     margin-top: 150px;
 }
 
-/* ::placeholder{ */
-/* 	text-align: center; */
-/* } */
-/* .btn btn-primary btn-block{ */
-/* 	height:80; */
-/* 	width:120; */
+#cuadro{
+	margin: auto;
+	margin-top: 30px;
+	width: 900px;
+	background: #696969;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 10px 10px 10px 10px;
+	border-radius: 6px;
 	
-/* } */
+}
+
+.comentario{
+	color: red;
+}
+

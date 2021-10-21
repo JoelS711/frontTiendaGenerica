@@ -68,7 +68,10 @@
 			</nav>
 
 		</div>
-		<div></div>
+		
+		<div id="cuadro">
+				<center><b><h1>Bienvenido/a ${usuario.nombre}</h1></b></center>
+		</div>
 
 	</header>
 

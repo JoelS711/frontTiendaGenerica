@@ -71,11 +71,17 @@ private ArrayList<ProveedoresVO> listarProveedores;
 	public String consultarProveedor(Model model, ProveedoresVO proveedor) {
 
 		prodao = new ProveedoresDAO();
-		model.addAttribute("nit", prodao.consultarProveedor(proveedor));
-
+		String redir;
+		ProveedoresVO pro = prodao.consultarProveedor(proveedor);
+		if(pro != null){
+			model.addAttribute("proveedor", pro);
+			redir ="/proveedor/consultarProveedor";
+		}else {
+			model.addAttribute("error", "Proveedor Inexistente");
+			redir ="/proveedor/consultarProveedor";
+		}
 		return "/proveedor/consultarProveedor";
-
-			}
+		}
 	
 	public void listarProveedor() {
 		ProveedoresDAO objEstDao = new ProveedoresDAO();
