@@ -104,7 +104,7 @@
 		<center><h1>¡La lista de ventas está vacia!</h1></center>
 			<%} %>
 	</div>
-<script>
+	<script type="text/javascript">
         let total = 0;
 
         let celdasPrecio = document.querySelectorAll('td + td + td');
