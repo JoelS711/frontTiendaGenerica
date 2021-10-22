@@ -80,7 +80,7 @@
 		if(lista.size()>0){
 		%>
 	<strong><center><h3><b>Listado de Ventas por Cliente</b></h3><center></strong>
-		<table class="table table-striped">
+		<table id="ventas" class="table table-striped">
 			<th><b>
 			</b><td scope="col"><center>Cedula</center></td>
 			<td scope="col"><center>Nombre</center></td>
@@ -104,5 +104,28 @@
 		<center><h1>¡La lista de ventas está vacia!</h1></center>
 			<%} %>
 	</div>
+<script>
+        let total = 0;
 
+        let celdasPrecio = document.querySelectorAll('td + td + td');
+
+        for(let i = 1; i < celdasPrecio.length; ++i){
+            total += parseFloat(celdasPrecio[i].firstChild.data);
+        }
+
+        let nuevaFila = document.createElement('tr');
+
+        let celdaTotal = document.createElement('td');
+        let textoCeldaTotal = document.createTextNode('Total:');
+        celdaTotal.appendChild(textoCeldaTotal);
+        nuevaFila.appendChild(celdaTotal);
+
+        let celdaValorTotal = document.createElement('td');
+        let textoCeldaValorTotal = document.createTextNode(total);
+        celdaValorTotal.appendChild(textoCeldaValorTotal);
+        nuevaFila.appendChild(celdaValorTotal);
+
+        document.getElementById('ventas').appendChild(nuevaFila);
+    </script>
 	</header>
+	</body>
